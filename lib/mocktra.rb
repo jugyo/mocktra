@@ -7,7 +7,6 @@ WebMock.allow_net_connect!
 module Mocktra
   class << self
     def mocktra(pattern, &block)
-      # TODO
       pattern = case pattern
         when Regexp
           pattern
