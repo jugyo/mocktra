@@ -39,7 +39,7 @@ Examples
 Notice
 ----
 
-Mocktra calls `WebMock.allow\_net\_connect!` when loading.
+Mocktra calls `WebMock.allow_net_connect!` when loading.
 
 Copyright
 ----
