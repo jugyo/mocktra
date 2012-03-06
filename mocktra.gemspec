@@ -19,8 +19,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  s.add_runtime_dependency "webmock"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rspec", "~> 2.8"
+  s.add_development_dependency "httpclient"
   s.add_runtime_dependency "webmock", "~> 1.8"
   s.add_runtime_dependency "sinatra", "~> 1.3"
 end
