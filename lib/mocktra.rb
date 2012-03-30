@@ -26,3 +26,15 @@ module Kernel
     Mocktra.mocktra(*args, &block)
   end
 end
+
+# patch to support basic auth
+class WebMock::RackResponse
+  def build_rack_env_with_basic_auth_support(request)
+    env = build_rack_env_without_basic_auth_support(request)
+    uri = request.uri
+    env['HTTP_AUTHORIZATION'] = 'Basic ' + [uri.userinfo].pack('m').delete("\r\n") if uri.userinfo
+    env
+  end
+  alias_method :build_rack_env_without_basic_auth_support, :build_rack_env
+  alias_method :build_rack_env, :build_rack_env_with_basic_auth_support
+end
