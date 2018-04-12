@@ -6,35 +6,39 @@ A webmock DSL using sinatra.
 Installation
 ----
 
-    $ gem install mocktra
+```bash
+$ gem install mocktra
+```
 
 Examples
 ----
 
-    require 'mocktra'
+```ruby
+require 'mocktra'
 
-    # define stub
-    Mocktra('www.example.com') do
-      get '/foo' do
-        'FOO!!'
-      end
+# define stub
+Mocktra('www.example.com') do
+  get '/foo' do
+    'FOO!!'
+  end
 
-      post '/foo' do
-        params.inspect
-      end
-    end
+  post '/foo' do
+    params.inspect
+  end
+end
 
-    # test it
-    require 'httpclient'
-    client = HTTPClient.new
+# test it
+require 'httpclient'
+client = HTTPClient.new
 
-    res = client.get("http://www.example.com/foo")
-    p res.body
-    #=> "FOO!!"
+res = client.get("http://www.example.com/foo")
+p res.body
+#=> "FOO!!"
 
-    res = client.post("http://www.example.com/foo", 'bar' => 'baz')
-    p res.body
-    #=> "{\"bar\"=>\"baz\"}"
+res = client.post("http://www.example.com/foo", 'bar' => 'baz')
+p res.body
+#=> "{\"bar\"=>\"baz\"}"
+```
 
 Notice
 ----
